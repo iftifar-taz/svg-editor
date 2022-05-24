@@ -1,0 +1,21 @@
+<svg id="svg-root" [attr.width]="svgCanvasDimention.width" [attr.height]="svgCanvasDimention.height"
+  xlinkns="http://www.w3.org/1999/xlink" mwlResizable (resizeEnd)="onResizeEnd($event)">
+  <rect id="svg-backbround" fill="#fff" [attr.width]="svgCanvasDimention.width"
+    [attr.height]="svgCanvasDimention.height"></rect>
+  <rect *ngIf="svgDimention" id="rectangle" stroke-width="3" stroke="#000" fill="#fff" [attr.width]="svgDimention.width"
+    [attr.height]="svgDimention.height" [attr.x]="svgDimention.x" [attr.y]="svgDimention.y"></rect>
+  <line *ngIf="svgDimention" id="resize-top" stroke-width="3" stroke="#000" mwlResizeHandle
+    [resizeEdges]="{ top: true }" [attr.x1]="svgDimention.x" [attr.y1]="svgDimention.y"
+    [attr.x2]="svgDimention.x + svgDimention.width" [attr.y2]="svgDimention.y">
+  </line>
+  <line *ngIf="svgDimention" id="resize-bottom" stroke-width="3" stroke="#000" mwlResizeHandle
+    [resizeEdges]="{ bottom: true }" [attr.x1]="svgDimention.x" [attr.y1]="svgDimention.y + svgDimention.height"
+    [attr.x2]="svgDimention.x + svgDimention.width" [attr.y2]="svgDimention.y + svgDimention.height"></line>
+  <line *ngIf="svgDimention" id="resize-left" stroke-width="3" stroke="#000" mwlResizeHandle
+    [resizeEdges]="{ left: true }" [attr.x1]="svgDimention.x" [attr.y1]="svgDimention.y" [attr.x2]="svgDimention.x"
+    [attr.y2]="svgDimention.y + svgDimention.height"></line>
+  <line *ngIf="svgDimention" id="resize-right" stroke-width="3" stroke="#000" mwlResizeHandle
+    [resizeEdges]="{ right: true }" [attr.x1]="svgDimention.x + svgDimention.width" [attr.y1]="svgDimention.y"
+    [attr.x2]="svgDimention.x + svgDimention.width" [attr.y2]="svgDimention.y + svgDimention.height"></line>
+</svg>
+<app-spinner *ngIf="!!isLoading"></app-spinner>
